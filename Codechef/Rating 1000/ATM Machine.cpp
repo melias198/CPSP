@@ -16,33 +16,29 @@
 #define minus cout<<-1<<endl
 using namespace std;
 
-bool vowel(char ch)
-{
-    if(ch=='a' || ch=='i' || ch=='o' || ch=='e' || ch=='u') return true;
-    else return false;
-}
-
 void solve()
 {
-     int n;
-     cin>>n;
-     string s;
-     cin>>s;
-     int ans=0;
-     bool flag=true;
-     for(int i=0;i<n;i++)
-     {
-        if(ans==4)
-        {
-            flag = false;
-            break;
-        }
-        if(vowel(s[i])) ans=0;
-        else ans++;
-     }
+    int n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
 
-     if(flag && ans<4) cout<<"YES"<<'\n';
-     else cout<<"NO"<<'\n';
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]<=k)
+        {
+            k-=v[i];
+            cout<<1;
+        }
+        else 
+        {
+            cout<<0;
+        }
+    }
+    cout<<'\n';
 }
 
 int main()
